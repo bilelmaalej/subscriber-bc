@@ -37,6 +37,8 @@ L'application expose les endpoints REST suivants pour gérer les abonnés Canal+
 - PATCH /subscribers/{id}/cancel : Désactive un abonné.
 - PUT /subscribers/{id} : Met à jour les données d'un abonné.
 
+J'ai aussi ajouté un endpointt : findAll pour vérifier les données dans la base 
+
 ## Règles Métier
 J'ai mis en place des validateur pour vérifier la cohérence des données (les mails, les numéros de téléphoen...)
 
