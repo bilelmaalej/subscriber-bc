@@ -62,7 +62,7 @@ public class SubscriberController {
      * @param subscriberDto
      * @return
      */
-    @PutMapping
+    @PutMapping(Constants.UPDATE)
     public ResponseEntity<String> updateSubscriber(@RequestBody SubscriberDto subscriberDto) {
         subscriberService.updateSubscriber(subscriberDto);
         return ResponseEntity.status(HttpStatus.CREATED).body("Mise à jour de l'abonné avec succes");
