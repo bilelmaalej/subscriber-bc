@@ -94,10 +94,6 @@ public class SubscriberServiceImpl implements SubscriberService {
 
     @Override
     public SubscriberDto updateSubscriber(SubscriberDto subscriberDto) {
-        // Si l'id n'est pas renseigné
-        if (subscriberDto.getId() == null) {
-            throw new IdShouldBeProvidedException();
-        }
         Optional<Subscriber> subscriber = subscriberRepository.findById(subscriberDto.getId());
         // Si l'abonné n'existe pas
         if (!subscriber.isPresent()) {
