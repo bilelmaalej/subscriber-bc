@@ -14,14 +14,15 @@ Pour exécuter cette application, vous aurez besoin des éléments suivants :
 ## Choix technique
 
 - Java 17
+- Spring Boot 3.0.2
 - Apache Maven
 - Base de donnée H2 en mémoire
 - Architecture MVC
 - JWT pour la sécurité
-- Mapstruct pour le mappin g(entre DTO et entity)
+- Mapstruct pour le mapping (entre DTO et entity)
 - Swagger pour la documentation des services
 
-- NB : Je joins deux collections postman (v 2 et V2.1) pour tester les endpoints 
+- NB : Je joins deux collections postman (V2 et V2.1) pour tester les endpoints 
 
 ## Lancer l'application
 
