@@ -38,7 +38,7 @@ L'application expose les endpoints REST suivants pour gérer les abonnés Canal+
 - POST api/v1/subscribers : Crée un abonné.
 - GET api/v1/subscribers/search : Récupère un abonné par n'importe quel critère de recherche.
 - PATCH /subscribers/{id}/cancel : Désactive un abonné.
-- PUT /subscribers/{id} : Met à jour les données d'un abonné.
+- PUT /subscribers : Met à jour les données d'un abonné.
 
 J'ai aussi ajouté un endpointt : 
 - GET api/v1/subscribers/search/findAll : Retourne tout les abonnés
