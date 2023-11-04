@@ -4,16 +4,17 @@ import com.canalplus.subscriber.dtos.SubscriberDto;
 import com.canalplus.subscriber.models.SubscriberCriteria;
 import com.canalplus.subscriber.services.SubscriberService;
 import com.canalplus.subscriber.utils.Constants;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import javax.validation.Valid;
 import java.util.List;
 
 
 @RestController
+@ControllerAdvice
 @RequestMapping(Constants.BASE_URL)
 public class SubscriberController {
     private final SubscriberService subscriberService;
@@ -25,7 +26,8 @@ public class SubscriberController {
     }
 
     /**
-     *
+     * Créaer un abonné (Id généré automatiquement)
+     * 
      * @param subscriberDto
      * @return
      */
@@ -36,7 +38,7 @@ public class SubscriberController {
     }
 
     /**
-     *
+     * Rechercher un abonnée avec un/des critères de recherche
      * @param criteria
      * @return
      */
@@ -47,7 +49,7 @@ public class SubscriberController {
     }
 
     /**
-     *
+     * Résilier un abonnée (le désactivé)
      * @param id
      * @return
      */
@@ -58,7 +60,7 @@ public class SubscriberController {
     }
 
     /**
-     *
+     * Mettre à jour un abonnée
      * @param subscriberDto
      * @return
      */
@@ -67,9 +69,9 @@ public class SubscriberController {
         subscriberService.updateSubscriber(subscriberDto);
         return ResponseEntity.status(HttpStatus.CREATED).body("Mise à jour de l'abonné avec succes");
     }
-
+    
     /**
-     *
+     * Retourner tout les abonnées
      * @return
      */
     @GetMapping(Constants.FIND_ALL)
