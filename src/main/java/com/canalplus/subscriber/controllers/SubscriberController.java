@@ -64,7 +64,7 @@ public class SubscriberController {
      * @param subscriberDto
      * @return
      */
-    @PutMapping("/{id}")
+    @PutMapping(Constants.UPDATE)
     public ResponseEntity<String> updateSubscriber(@RequestBody SubscriberDto subscriberDto,
                                                    @PathVariable("id") Long subscriberId) {
         subscriberService.updateSubscriber(subscriberDto, subscriberId);
