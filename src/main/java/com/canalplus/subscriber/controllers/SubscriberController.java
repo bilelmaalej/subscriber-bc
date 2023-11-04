@@ -27,7 +27,7 @@ public class SubscriberController {
 
     /**
      * Créaer un abonné (Id généré automatiquement)
-     * 
+     *
      * @param subscriberDto
      * @return
      */
@@ -64,12 +64,13 @@ public class SubscriberController {
      * @param subscriberDto
      * @return
      */
-    @PutMapping(Constants.UPDATE)
-    public ResponseEntity<String> updateSubscriber(@RequestBody SubscriberDto subscriberDto) {
-        subscriberService.updateSubscriber(subscriberDto);
+    @PutMapping("/{id}")
+    public ResponseEntity<String> updateSubscriber(@RequestBody SubscriberDto subscriberDto,
+                                                   @PathVariable("id") Long subscriberId) {
+        subscriberService.updateSubscriber(subscriberDto, subscriberId);
         return ResponseEntity.status(HttpStatus.CREATED).body("Mise à jour de l'abonné avec succes");
     }
-    
+
     /**
      * Retourner tout les abonnées
      * @return
