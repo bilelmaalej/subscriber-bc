@@ -36,20 +36,20 @@ public class SubscriberServiceImpl implements SubscriberService {
     public SubscriberDto createSubscriber(SubscriberDto subscriberDto) {
         // Valider les données de l'abonné
         // On ne doit pas renseigné l'ID de l'abonné
-//        if (subscriberDto.getId() != null) {
-//            logger.warn("L'ID ne doit pas etre renseigné pour l'abonnée" + subscriberDto.getFname() +" " + subscriberDto.getLname());
-//            throw new IdShouldNotBeProvidedException();
-//        }
-//        // Toutes les données doivent etre fournies
-//        if (subscriberDto.getFname() == null || subscriberDto.getLname() == null || subscriberDto.getMail() == null || subscriberDto.getPhone() == null) {
-//            logger.warn("Toutes les données personnelles doivent être fournies");
-//            throw new AllSubscriberParmatersSHouldBeProvidedException();
-//        }
-//        // Si l'abonné existe deja (On vérifie avec tous les donées)
-//        if (!getSubscriberByCriteria(new SubscriberCriteria(subscriberDto.getId(), subscriberDto.getFname(), subscriberDto.getLname(), subscriberDto.getMail(), subscriberDto.getPhone())).isEmpty()) {
-//            logger.warn("L'abonné existe déja");
-//            throw new SubscriberAlreadyExistsException();
-//        }
+        if (subscriberDto.getId() != null) {
+            logger.warn("L'ID ne doit pas etre renseigné pour l'abonnée" + subscriberDto.getFname() +" " + subscriberDto.getLname());
+            throw new IdShouldNotBeProvidedException();
+        }
+        // Toutes les données doivent etre fournies
+        if (subscriberDto.getFname() == null || subscriberDto.getLname() == null || subscriberDto.getMail() == null || subscriberDto.getPhone() == null) {
+            logger.warn("Toutes les données personnelles doivent être fournies");
+            throw new AllSubscriberParmatersSHouldBeProvidedException();
+        }
+        // Si l'abonné existe deja (On vérifie avec tous les donées)
+        if (!getSubscriberByCriteria(new SubscriberCriteria(subscriberDto.getId(), subscriberDto.getFname(), subscriberDto.getLname(), subscriberDto.getMail(), subscriberDto.getPhone())).isEmpty()) {
+            logger.warn("L'abonné existe déja");
+            throw new SubscriberAlreadyExistsException();
+        }
         // Marquer le nouvel abonné comme actif
         subscriberDto.setActive(true);
         // Mapper SubscriberDto to Entity
