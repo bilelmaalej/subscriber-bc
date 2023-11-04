@@ -1,0 +1,88 @@
+{
+	"info": {
+		"_postman_id": "7844542f-c80d-47d9-8d78-0980b871e835",
+		"name": "Canal PLUS Subscriber-bc",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "8166117"
+	},
+	"item": [
+		{
+			"name": "create",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"fname\" : \"bilel\",\r\n    \"lname\": \"maalej\",\r\n    \"mail\" : \"bilel.maalej@gmail.com\",\r\n    \"phone\": \"0658631581\"\r\n}"
+				},
+				"url": "http://localhost:8080/api/v1/subscribers"
+			},
+			"response": []
+		},
+		{
+			"name": "search",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"fname\" : \"bilel\",\r\n    \"lname\": \"maalej\",\r\n    \"mail\" : \"bilel.maalej@gmail.com\",\r\n    \"phone\": \"0658631521\"\r\n}"
+				},
+				"url": "http://localhost:8080/api/v1/subscribers/search"
+			},
+			"response": []
+		},
+		{
+			"name": "cancel",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"url": "http://localhost:8080/api/v1/subscribers/8/cancel"
+			},
+			"response": []
+		},
+		{
+			"name": "update",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"fname\" : \"bilel\",\r\n    \"lname\": \"maalej\",\r\n    \"mail\" : \"bilel.maalej@gmail.com\",\r\n    \"phone\": \"0658631529\"\r\n}"
+				},
+				"url": "http://localhost:8080/api/v1/subscribers/1"
+			},
+			"response": []
+		},
+		{
+			"name": "findAll",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "http://localhost:8080/api/v1/subscribers/findAll"
+			},
+			"response": []
+		}
+	]
+}
