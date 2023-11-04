@@ -6,7 +6,6 @@ import com.canalplus.subscriber.mappers.SubscriberMapper;
 import com.canalplus.subscriber.models.Subscriber;
 import com.canalplus.subscriber.models.SubscriberCriteria;
 import com.canalplus.subscriber.repositories.SubscriberRepository;
-import lombok.RequiredArgsConstructor;
 import org.mapstruct.factory.Mappers;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -37,20 +36,20 @@ public class SubscriberServiceImpl implements SubscriberService {
     public SubscriberDto createSubscriber(SubscriberDto subscriberDto) {
         // Valider les données de l'abonné
         // On ne doit pas renseigné l'ID de l'abonné
-        if (subscriberDto.getId() != null) {
-            logger.warn("L'ID ne doit pas etre renseigné pour l'abonnée" + subscriberDto.getFname() +" " + subscriberDto.getLname());
-            throw new IdShouldNotBeProvidedException();
-        }
-        // Toutes les données doivent etre fournies
-        if (subscriberDto.getFname() == null || subscriberDto.getLname() == null || subscriberDto.getMail() == null || subscriberDto.getPhone() == null) {
-            logger.warn("Toutes les données personnelles doivent être fournies");
-            throw new AllSubscriberParmatersSHouldBeProvidedException();
-        }
-        // Si l'abonné existe deja (On vérifie avec tous les donées)
-        if (!getSubscriberByCriteria(new SubscriberCriteria(subscriberDto.getId(), subscriberDto.getFname(), subscriberDto.getLname(), subscriberDto.getMail(), subscriberDto.getPhone())).isEmpty()) {
-            logger.warn("L'abonné existe déja");
-            throw new SubscriberAlreadyExistsException();
-        }
+//        if (subscriberDto.getId() != null) {
+//            logger.warn("L'ID ne doit pas etre renseigné pour l'abonnée" + subscriberDto.getFname() +" " + subscriberDto.getLname());
+//            throw new IdShouldNotBeProvidedException();
+//        }
+//        // Toutes les données doivent etre fournies
+//        if (subscriberDto.getFname() == null || subscriberDto.getLname() == null || subscriberDto.getMail() == null || subscriberDto.getPhone() == null) {
+//            logger.warn("Toutes les données personnelles doivent être fournies");
+//            throw new AllSubscriberParmatersSHouldBeProvidedException();
+//        }
+//        // Si l'abonné existe deja (On vérifie avec tous les donées)
+//        if (!getSubscriberByCriteria(new SubscriberCriteria(subscriberDto.getId(), subscriberDto.getFname(), subscriberDto.getLname(), subscriberDto.getMail(), subscriberDto.getPhone())).isEmpty()) {
+//            logger.warn("L'abonné existe déja");
+//            throw new SubscriberAlreadyExistsException();
+//        }
         // Marquer le nouvel abonné comme actif
         subscriberDto.setActive(true);
         // Mapper SubscriberDto to Entity
@@ -86,6 +85,7 @@ public class SubscriberServiceImpl implements SubscriberService {
         Optional<Subscriber> subscriber = subscriberRepository.findById(id);
         if (subscriber.isPresent()) {
             subscriber.get().setActive(false);
+            logger.info("Résiliation de l'abonné avec succes");
             subscriberRepository.save(subscriber.get());
         } else {
             throw new SubscriberNotFoundException();
@@ -93,8 +93,8 @@ public class SubscriberServiceImpl implements SubscriberService {
     }
 
     @Override
-    public SubscriberDto updateSubscriber(SubscriberDto subscriberDto) {
-        Optional<Subscriber> subscriber = subscriberRepository.findById(subscriberDto.getId());
+    public SubscriberDto updateSubscriber(SubscriberDto subscriberDto, Long subscriberId) {
+        Optional<Subscriber> subscriber = subscriberRepository.findById(subscriberId);
         // Si l'abonné n'existe pas
         if (!subscriber.isPresent()) {
             throw new SubscriberNotFoundException();
