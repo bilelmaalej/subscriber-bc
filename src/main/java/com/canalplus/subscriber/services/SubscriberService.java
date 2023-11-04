@@ -13,7 +13,7 @@ public interface SubscriberService {
     SubscriberDto createSubscriber(SubscriberDto subscriberDto);
     List<SubscriberDto> getSubscriberByCriteria(SubscriberCriteria subscriberCriteria);
     void cancelSubscriber(Long id);
-    SubscriberDto updateSubscriber(SubscriberDto subscriberDto);
+    SubscriberDto updateSubscriber(SubscriberDto subscriberDto, Long subscriberId);
     List<SubscriberDto> findAll();
     List<SubscriberDto> searchSubscriber(SubscriberCriteria criteria);
 
