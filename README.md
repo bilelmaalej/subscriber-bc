@@ -26,9 +26,9 @@ Pour exécuter cette application, vous aurez besoin des éléments suivants :
 
 ## Lancer l'application
 
-L'application utilise le framwork spring boot aec un serveur Tomcat intégrer 
-Pour la lancer soit : mvn spring-boot:run
-ou bien : lancer le fichier SubscriberBcApplication.java
+L'application utilise le framwork spring boot aec un serveur Tomcat intégré 
+Pour démarrer l'application soit : mvn spring-boot:run
+ou bien : éxécuter le fichier SubscriberBcApplication.java
 L'application sera accessible à l'adresse http://localhost:8080.
 
 ## Endpoints REST
@@ -41,7 +41,7 @@ L'application expose les endpoints REST suivants pour gérer les abonnés Canal+
 - PUT /subscribers/{id} : Met à jour les données d'un abonné.
 
 J'ai aussi ajouté un endpointt : 
-- GET api/v1/subscribers/search/findAll : Retourner tout les abonnés
+- GET api/v1/subscribers/search/findAll : Retourne tout les abonnés
 
 ## Règles Métier
 
