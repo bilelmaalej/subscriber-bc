@@ -5,4 +5,5 @@ public class Constants {
     public static final String SEARCH = "/search";
     public static final String cancel = "/{id}/cancel";
     public static final String FIND_ALL = "/findAll";
+    public static final String UPDATE = "/{id}";
 }
