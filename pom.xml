@@ -11,7 +11,6 @@
 	<groupId>com.canalplus</groupId>
 	<artifactId>subscriber-bc</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<packaging>pom</packaging>
 	<name>subscriber-bc</name>
 	<description>Projet de gestion des abonnés Canal +</description>
 	<properties>
@@ -74,7 +73,17 @@
 <!--			<scope>runtime</scope>-->
 <!--		</dependency>-->
 
-
+		<!-- https://mvnrepository.com/artifact/org.slf4j/slf4j-api -->
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-api</artifactId>
+			<version>2.0.9</version>
+		</dependency>
+		<!-- Ajouter Logback -->
+		<dependency>
+			<groupId>ch.qos.logback</groupId>
+			<artifactId>logback-classic</artifactId>
+		</dependency>
 
 
 
