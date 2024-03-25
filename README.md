@@ -7,7 +7,8 @@ Bienvenue dans l'application de gestion des abonnés Canal+ ! Cette application 
 
 ## Configuration requise
 
-Pour exécuter cette application, vous aurez besoin des éléments suivants : test2
+Pour exécuter cette application, vous aurez besoin des éléments suivants : test1
+
 - JDK 17
 - Apache Maven
 
